@@ -13,11 +13,11 @@ struct RootScene: View {
     @StateObject var rootModel: RootModel
     
     var body: some View {
-        view
+        rootView
     }
     
     @ViewBuilder
-    var view: some View {
+    var rootView: some View {
         switch rootModel.authState {
         case .loading:
             LottieView(lottieFile: "loader_main")
