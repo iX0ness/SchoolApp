@@ -10,7 +10,7 @@ import Combine
 import FirebaseAuth
 
 struct RootScene: View {
-    @StateObject var loaderModel: RootModel
+    @StateObject var rootModel: RootModel
     
     var body: some View {
         view
@@ -18,7 +18,7 @@ struct RootScene: View {
     
     @ViewBuilder
     var view: some View {
-        switch loaderModel.authState {
+        switch rootModel.authState {
         case .loading:
             LottieView(lottieFile: "loader_main")
                 .frame(width: 80, height: 80)
@@ -32,6 +32,6 @@ struct RootScene: View {
 
 struct LoaderScene_Previews: PreviewProvider {
     static var previews: some View {
-        RootScene(loaderModel: RootModel(loaderService: LoaderServiceStub()))
+        RootScene(rootModel: RootModel(loaderService: LoaderServiceStub()))
     }
 }
