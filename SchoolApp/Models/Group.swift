@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Group {
+struct Group: Identifiable, Hashable {
     let id: String = UUID().uuidString
     let name: String
 }

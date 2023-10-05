@@ -12,6 +12,8 @@ import Foundation
 import FirebaseAuth
 
 final class AuthManagerStub: AuthManagerProtocol, ObservableObject {
+    func loadUser() async {}
+    
     @Published var currentUser: FirebaseAuth.User?
     
     func createUser(email: String, password: String) async throws {}

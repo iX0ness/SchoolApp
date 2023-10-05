@@ -8,31 +8,23 @@
 import SwiftUI
 
 struct HomeScene: View {
-    @ObservedObject var viewModel: HomeViewModel
-    @EnvironmentObject var authManager: AuthManager
+    @ObservedObject var viewModel: HomeViewModel = HomeViewModel(userService: Dependencies.usersService)
+//    @EnvironmentObject var authManager: AuthManager
     private let userId: String
     private let columns = [
         GridItem(.fixed(150), spacing: 30),
         GridItem(.fixed(150), spacing: 30)
     ]
     
-    init(viewModel: HomeViewModel, userId: String) {
-        self.viewModel = viewModel
-        self.userId = userId
-    }
-    
     init(userId: String) {
-        self.init(
-            viewModel: HomeViewModel(userService: Dependencies.usersService),
-            userId: userId
-        )
+        self.userId = userId
     }
     
     var body: some View {
         NavigationStack {
             ScrollView(.vertical) {
                 LazyVGrid(columns: columns) {
-                    ForEach(viewModel.groups, id: \.id) { group in
+                    ForEach(viewModel.groups) { group in
                         GroupCellView(group: group)
                             .frame(width: 150, height: 30)
                     }
@@ -40,13 +32,13 @@ struct HomeScene: View {
                 }
                 .padding()
                 
-                Button("Logout") {
-                    do {
-                        try authManager.singOut()
-                    } catch {
-                        
-                    }
-                }
+//                Button("Logout") {
+//                    do {
+//                        try authManager.singOut()
+//                    } catch {
+//                        
+//                    }
+//                }
             }
             .navigationTitle("Groups")
             .task {
@@ -56,14 +48,14 @@ struct HomeScene: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeScene(viewModel: HomeViewModel(
-            userService: HomeScene.Dependencies.usersService), userId: "mGQtQonDiRRlJtzHk5AdGiX3w6p1"
-        )
-        .environmentObject(AuthManager.shared)
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeScene(viewModel: HomeViewModel(
+//            userService: HomeScene.Dependencies.usersService), userId: "mGQtQonDiRRlJtzHk5AdGiX3w6p1"
+//        )
+//        .environmentObject(AuthManager.shared)
+//    }
+//}
 
 extension HomeScene {
     struct Dependencies {

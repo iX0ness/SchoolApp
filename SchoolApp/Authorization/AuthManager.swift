@@ -16,6 +16,7 @@ protocol AuthManagerProtocol: ObservableObject {
     func singOut() throws
 }
 
+
 final class AuthManager: AuthManagerProtocol {
     @Published var currentUser: FirebaseAuth.User?
     
@@ -25,12 +26,20 @@ final class AuthManager: AuthManagerProtocol {
         loadUser()
     }
     
-    private func loadUser() {
+
+    func loadUser()  {
         if let user = Auth.auth().currentUser {
             currentUser = user
         } else {
             currentUser = nil
         }
+//        Auth.auth().addStateDidChangeListener { [weak self] _, user in
+//            if let user = user {
+//                self?.currentUser = user
+//            } else {
+//                self?.currentUser = nil
+//            }
+//        }
     }
 }
 
