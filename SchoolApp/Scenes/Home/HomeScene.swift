@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct HomeScene: View {
-    @ObservedObject var viewModel: HomeViewModel = HomeViewModel(userService: Dependencies.usersService)
-//    @EnvironmentObject var authManager: AuthManager
+    @StateObject var viewModel: HomeViewModel = HomeViewModel(userService: Dependencies.usersService)
+    
     private let userId: String
     private let columns = [
         GridItem(.fixed(150), spacing: 30),
@@ -31,14 +31,6 @@ struct HomeScene: View {
                     .padding()
                 }
                 .padding()
-                
-//                Button("Logout") {
-//                    do {
-//                        try authManager.singOut()
-//                    } catch {
-//                        
-//                    }
-//                }
             }
             .navigationTitle("Groups")
             .task {
@@ -48,18 +40,15 @@ struct HomeScene: View {
     }
 }
 
-//struct HomeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeScene(viewModel: HomeViewModel(
-//            userService: HomeScene.Dependencies.usersService), userId: "mGQtQonDiRRlJtzHk5AdGiX3w6p1"
-//        )
-//        .environmentObject(AuthManager.shared)
-//    }
-//}
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeScene( userId: "mGQtQonDiRRlJtzHk5AdGiX3w6p1")
+            .environmentObject(AuthManager.shared)
+    }
+}
 
 extension HomeScene {
     struct Dependencies {
         static let usersService: UserService = UserServiceImpl()
     }
 }
-

@@ -33,13 +33,6 @@ final class AuthManager: AuthManagerProtocol {
         } else {
             currentUser = nil
         }
-//        Auth.auth().addStateDidChangeListener { [weak self] _, user in
-//            if let user = user {
-//                self?.currentUser = user
-//            } else {
-//                self?.currentUser = nil
-//            }
-//        }
     }
 }
 

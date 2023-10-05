@@ -250,7 +250,6 @@
 				22F6AA352A7D62A90052FFC6 /* SignUp */,
 				22F6AA342A7D62980052FFC6 /* SignIn */,
 				22F6AA262A7D59E80052FFC6 /* Root */,
-				227BF9132ACDF4E3001FA825 /* LoadingView.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -258,8 +257,9 @@
 		22F6AA262A7D59E80052FFC6 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				22F6AA022A7D56890052FFC6 /* RootScene.swift */,
+				227BF9132ACDF4E3001FA825 /* LoadingView.swift */,
 				22EC11822A82377600A939A8 /* RootModel.swift */,
+				22F6AA022A7D56890052FFC6 /* RootScene.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
