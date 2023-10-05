@@ -1,5 +1,5 @@
 //
-//  HomeScene.swift
+//  GroupScreen.swift
 //  SchoolApp
 //
 //  Created by Mykhaylo Levchuk on 08/08/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeScene: View {
+struct GroupScreen: View {
     @StateObject var viewModel: HomeViewModel = HomeViewModel(userService: Dependencies.usersService)
     
     private let userId: String
@@ -40,15 +40,15 @@ struct HomeScene: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScene( userId: "mGQtQonDiRRlJtzHk5AdGiX3w6p1")
+        GroupScreen( userId: "mGQtQonDiRRlJtzHk5AdGiX3w6p1")
             .environmentObject(AuthManager.shared)
     }
 }
 
-extension HomeScene {
+extension GroupScreen {
     struct Dependencies {
-        static let usersService: UserService = UserServiceImpl()
+        static let usersService: UserServiceProtocol = UserService()
     }
 }

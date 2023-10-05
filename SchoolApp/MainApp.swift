@@ -21,7 +21,7 @@ struct MainApp: App {
     @StateObject var authManager = AuthManager.shared
     var body: some Scene {
         WindowGroup {
-            RootScene(authManager: authManager)
+            RootScreen<AuthManager>()
                 .environmentObject(authManager)
         }
     }

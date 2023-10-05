@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoadingView: View {
     @Binding var isLoading: Bool
+    private let delay: TimeInterval = 2.0
     
     var body: some View {
         VStack {
@@ -18,7 +19,7 @@ struct LoadingView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.white))
         .task {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                 isLoading.toggle()
             }
         }

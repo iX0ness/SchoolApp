@@ -5,18 +5,16 @@
 //  Created by Mykhaylo Levchuk on 04/08/2023.
 //
 
-
-
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 import CollectionConcurrencyKit
 
-protocol UserService: AnyObject {
+protocol UserServiceProtocol: AnyObject {
     func loadUser(by id: String) async throws -> User?
     func loadGroups(_ groupIds: [String]) async -> [Group]
 }
 
-final class UserServiceImpl: UserService {
+final class UserService: UserServiceProtocol {
     func loadUser(by id: String) async throws -> User? {
         let snapshot = Firestore.firestore().collection("users").document(id)
         

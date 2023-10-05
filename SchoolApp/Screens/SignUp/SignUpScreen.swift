@@ -1,5 +1,5 @@
 //
-//  SignUpScene.swift
+//  SignUpScreen.swift
 //  SchoolApp
 //
 //  Created by Mykhaylo Levchuk on 04/08/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SignUpScene: View {
+struct SignUpScreen: View {
     @State var email = ""
     @State var password = ""
     @State var firstname = ""
@@ -49,10 +49,10 @@ struct SignUpScene: View {
     }
 }
 
-struct SignUpView_Previews: PreviewProvider {
+struct SignUpScreen_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SignUpScene()
+            SignUpScreen()
         }
     }
 }

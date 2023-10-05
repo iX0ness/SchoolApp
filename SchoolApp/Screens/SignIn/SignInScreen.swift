@@ -1,5 +1,5 @@
 //
-//  SignInScene.swift
+//  SignInScreen.swift
 //  SchoolApp
 //
 //  Created by Mykhaylo Levchuk on 04/08/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SignInScene: View {
+struct SignInScreen: View {
     @EnvironmentObject var authManager: AuthManager
     @ObservedObject var viewModel = SignInViewModel()
     
@@ -49,13 +49,12 @@ struct SignInScene: View {
             .font(.subheadline)
             
         }
-        
         .padding(.horizontal)
     }
 }
 
-struct SignInView_Previews: PreviewProvider {
+struct SignInScreen_Previews: PreviewProvider {
     static var previews: some View {
-        SignInScene()
+        SignInScreen()
     }
 }
