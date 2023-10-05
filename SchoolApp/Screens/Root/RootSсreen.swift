@@ -13,7 +13,7 @@ struct RootScreen<T: AuthManagerProtocol>: View {
     
     var body: some View {
         if let user = authManager.currentUser {
-            GroupScreen(userId: user.uid)
+            GroupsScreen(userId: user.uid)
                 .onAppear { isLoading = true }
                 .overlay {
                     LoadingView(isLoading: $isLoading)

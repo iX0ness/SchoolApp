@@ -11,7 +11,6 @@ import CollectionConcurrencyKit
 
 protocol UserServiceProtocol: AnyObject {
     func loadUser(by id: String) async throws -> User?
-    func loadGroups(_ groupIds: [String]) async -> [Group]
 }
 
 final class UserService: UserServiceProtocol {
@@ -26,18 +25,5 @@ final class UserService: UserServiceProtocol {
         }
         
         return nil
-    }
-    
-    func loadGroups(_ groupIds: [String]) async -> [Group] {
-        var groups: [Group] = []
-        
-        groups = await groupIds.asyncCompactMap { try? await loadGroup(by: $0) }
-        
-        return groups
-    }
-    
-    func loadGroup(by id: String) async throws -> Group? {
-        let snapshot = Firestore.firestore().collection("groups").document(id)
-        return try? await snapshot.getDocument(as: Group.self)
     }
 }

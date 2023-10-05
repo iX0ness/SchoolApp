@@ -7,8 +7,11 @@
 
 import SwiftUI
 
-struct GroupScreen: View {
-    @StateObject var viewModel: HomeViewModel = HomeViewModel(userService: Dependencies.usersService)
+struct GroupsScreen: View {
+    @StateObject var groupsModel: GroupsModel = GroupsModel(
+        userService: Dependencies.usersService,
+        groupService: Dependencies.groupService
+    )
     
     private let userId: String
     private let columns = [
@@ -24,7 +27,7 @@ struct GroupScreen: View {
         NavigationStack {
             ScrollView(.vertical) {
                 LazyVGrid(columns: columns) {
-                    ForEach(viewModel.groups) { group in
+                    ForEach(groupsModel.groups) { group in
                         GroupCellView(group: group)
                             .frame(width: 150, height: 30)
                     }
@@ -34,21 +37,22 @@ struct GroupScreen: View {
             }
             .navigationTitle("Groups")
             .task {
-                await viewModel.loadUser(id: userId)
+                await groupsModel.loadGroups(for: userId)
             }
         }
     }
 }
 
-struct HomeScreen_Previews: PreviewProvider {
+struct GroupsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        GroupScreen( userId: "mGQtQonDiRRlJtzHk5AdGiX3w6p1")
+        GroupsScreen(userId: "mGQtQonDiRRlJtzHk5AdGiX3w6p1")
             .environmentObject(AuthManager.shared)
     }
 }
 
-extension GroupScreen {
+extension GroupsScreen {
     struct Dependencies {
         static let usersService: UserServiceProtocol = UserService()
+        static let groupService: GroupServiceProtocol = GroupService()
     }
 }

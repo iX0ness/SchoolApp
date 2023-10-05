@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22166AE72ACF17AD00D55065 /* UserServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22166AE62ACF17AD00D55065 /* UserServiceStub.swift */; };
+		22166AEA2ACF196200D55065 /* GroupServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22166AE92ACF196200D55065 /* GroupServiceStub.swift */; };
+		22166AEC2ACF19A800D55065 /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22166AEB2ACF19A800D55065 /* GroupService.swift */; };
 		2219C0FE2A839D9D00FD1D62 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2219C0FD2A839D9D00FD1D62 /* SignInViewModel.swift */; };
 		22526B862ACCBE7A00E568AA /* DelayedAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22526B852ACCBE7A00E568AA /* DelayedAppearance.swift */; };
 		227BF9142ACDF4E3001FA825 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BF9132ACDF4E3001FA825 /* LoadingView.swift */; };
 		22B1DAAB2A83CD5500789DEA /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1DAAA2A83CD5500789DEA /* Collections.swift */; };
-		22B1DAAD2A83D27E00789DEA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1DAAC2A83D27E00789DEA /* HomeViewModel.swift */; };
+		22B1DAAD2A83D27E00789DEA /* GroupsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1DAAC2A83D27E00789DEA /* GroupsModel.swift */; };
 		22B1DAAF2A86506B00789DEA /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1DAAE2A86506B00789DEA /* Group.swift */; };
 		22B1DAB22A86565300789DEA /* CollectionConcurrencyKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22B1DAB12A86565300789DEA /* CollectionConcurrencyKit */; };
 		22B1DAB62A8CCD5100789DEA /* GroupCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1DAB52A8CCD5100789DEA /* GroupCellView.swift */; };
 		22B1DABB2A8CD4FA00789DEA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1DABA2A8CD4FA00789DEA /* Colors.swift */; };
-		22EC11812A82375800A939A8 /* GroupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EC11802A82375800A939A8 /* GroupScreen.swift */; };
+		22EC11812A82375800A939A8 /* GroupsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EC11802A82375800A939A8 /* GroupsScreen.swift */; };
 		22EC11862A8237C000A939A8 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EC11852A8237C000A939A8 /* AuthManager.swift */; };
 		22EC11882A8238B300A939A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EC11872A8238B300A939A8 /* User.swift */; };
 		22EC118B2A823A8500A939A8 /* DebugTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EC118A2A823A8500A939A8 /* DebugTool.swift */; };
@@ -45,15 +48,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22166AE62ACF17AD00D55065 /* UserServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceStub.swift; sourceTree = "<group>"; };
+		22166AE92ACF196200D55065 /* GroupServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupServiceStub.swift; sourceTree = "<group>"; };
+		22166AEB2ACF19A800D55065 /* GroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
 		2219C0FD2A839D9D00FD1D62 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		22526B852ACCBE7A00E568AA /* DelayedAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayedAppearance.swift; sourceTree = "<group>"; };
 		227BF9132ACDF4E3001FA825 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		22B1DAAA2A83CD5500789DEA /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
-		22B1DAAC2A83D27E00789DEA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		22B1DAAC2A83D27E00789DEA /* GroupsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsModel.swift; sourceTree = "<group>"; };
 		22B1DAAE2A86506B00789DEA /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		22B1DAB52A8CCD5100789DEA /* GroupCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCellView.swift; sourceTree = "<group>"; };
 		22B1DABA2A8CD4FA00789DEA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		22EC11802A82375800A939A8 /* GroupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupScreen.swift; sourceTree = "<group>"; };
+		22EC11802A82375800A939A8 /* GroupsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsScreen.swift; sourceTree = "<group>"; };
 		22EC11852A8237C000A939A8 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		22EC11872A8238B300A939A8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22EC118A2A823A8500A939A8 /* DebugTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugTool.swift; sourceTree = "<group>"; };
@@ -110,14 +116,14 @@
 			path = Styles;
 			sourceTree = "<group>";
 		};
-		22EC117E2A82373500A939A8 /* Group */ = {
+		22EC117E2A82373500A939A8 /* Groups */ = {
 			isa = PBXGroup;
 			children = (
-				22EC11802A82375800A939A8 /* GroupScreen.swift */,
-				22B1DAAC2A83D27E00789DEA /* HomeViewModel.swift */,
+				22EC11802A82375800A939A8 /* GroupsScreen.swift */,
+				22B1DAAC2A83D27E00789DEA /* GroupsModel.swift */,
 				22B1DAB52A8CCD5100789DEA /* GroupCellView.swift */,
 			);
-			path = Group;
+			path = Groups;
 			sourceTree = "<group>";
 		};
 		22EC117F2A82374800A939A8 /* Profile */ = {
@@ -155,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				22EC11912A8281D300A939A8 /* AuthManagerStub.swift */,
+				22166AE62ACF17AD00D55065 /* UserServiceStub.swift */,
+				22166AE92ACF196200D55065 /* GroupServiceStub.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -210,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				22F6AA322A7D5EE70052FFC6 /* UserService.swift */,
+				22166AEB2ACF19A800D55065 /* GroupService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -227,7 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				22EC117F2A82374800A939A8 /* Profile */,
-				22EC117E2A82373500A939A8 /* Group */,
+				22EC117E2A82373500A939A8 /* Groups */,
 				22F6AA352A7D62A90052FFC6 /* SignUp */,
 				22F6AA342A7D62980052FFC6 /* SignIn */,
 				22F6AA262A7D59E80052FFC6 /* Root */,
@@ -400,17 +409,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				22526B862ACCBE7A00E568AA /* DelayedAppearance.swift in Sources */,
-				22B1DAAD2A83D27E00789DEA /* HomeViewModel.swift in Sources */,
+				22B1DAAD2A83D27E00789DEA /* GroupsModel.swift in Sources */,
 				22B1DABB2A8CD4FA00789DEA /* Colors.swift in Sources */,
 				22F6AA392A7D62C90052FFC6 /* SignInScreen.swift in Sources */,
 				227BF9142ACDF4E3001FA825 /* LoadingView.swift in Sources */,
 				22F6AA3D2A7E674A0052FFC6 /* SCTextField.swift in Sources */,
 				22F6AA332A7D5EE70052FFC6 /* UserService.swift in Sources */,
+				22166AEA2ACF196200D55065 /* GroupServiceStub.swift in Sources */,
 				22F6AA372A7D62C10052FFC6 /* SignUpScreen.swift in Sources */,
+				22166AE72ACF17AD00D55065 /* UserServiceStub.swift in Sources */,
 				22EC11922A8281D300A939A8 /* AuthManagerStub.swift in Sources */,
+				22166AEC2ACF19A800D55065 /* GroupService.swift in Sources */,
 				22F6AA032A7D56890052FFC6 /* RootSсreen.swift in Sources */,
 				22B1DAAF2A86506B00789DEA /* Group.swift in Sources */,
-				22EC11812A82375800A939A8 /* GroupScreen.swift in Sources */,
+				22EC11812A82375800A939A8 /* GroupsScreen.swift in Sources */,
 				22EC118B2A823A8500A939A8 /* DebugTool.swift in Sources */,
 				22F6AA012A7D56890052FFC6 /* MainApp.swift in Sources */,
 				22B1DAAB2A83CD5500789DEA /* Collections.swift in Sources */,
