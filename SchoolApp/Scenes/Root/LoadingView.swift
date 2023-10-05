@@ -18,16 +18,13 @@ struct LoadingView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.white))
         .task {
-            
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 isLoading.toggle()
             }
-            
         }
-        
     }
 }
 
-//#Preview {
-//    LoadingView(isAnimating: .constant(true))
-//}
+#Preview {
+    LoadingView(isLoading: .constant(true))
+}
