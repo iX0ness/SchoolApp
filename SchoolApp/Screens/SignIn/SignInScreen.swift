@@ -9,9 +9,9 @@ import SwiftUI
 
 struct SignInScreen<T: AuthManagerProtocol>: View {
     @EnvironmentObject var authManager: T
-    @State var email = ""
-    @State var password = ""
     @State private var errorWrapper: ErrorWrapper?
+    @State private var email = ""
+    @State private var password = ""
     
     var body: some View {
         VStack {
@@ -26,9 +26,7 @@ struct SignInScreen<T: AuthManagerProtocol>: View {
             
             Button(
                 action: {
-                    Task {
-                        await signIn()
-                    }
+                    Task { await signIn() }
                 },
                 label: {
                     Text("Sign In")
@@ -78,4 +76,3 @@ struct SignInScreen_Previews: PreviewProvider {
             .environmentObject(AuthManagerStub())
     }
 }
-
