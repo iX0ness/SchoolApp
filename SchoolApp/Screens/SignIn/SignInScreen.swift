@@ -7,25 +7,27 @@
 
 import SwiftUI
 
-struct SignInScreen: View {
-    @EnvironmentObject var authManager: AuthManager
-    @ObservedObject var viewModel = SignInViewModel()
+struct SignInScreen<T: AuthManagerProtocol>: View {
+    @EnvironmentObject var authManager: T
+    @State var email = ""
+    @State var password = ""
+    @State private var errorWrapper: ErrorWrapper?
     
     var body: some View {
         VStack {
             Spacer()
             
-            TextField("Email", text: $viewModel.email)
+            TextField("Email", text: $email)
                 .modifier(SCTextField())
                 .textInputAutocapitalization(.never)
-                
-            SecureField("Password", text: $viewModel.password)
+            
+            SecureField("Password", text: $password)
                 .modifier(SCTextField())
             
             Button(
                 action: {
                     Task {
-                        try await authManager.signIn(email: viewModel.email, password: viewModel.password)
+                        await signIn()
                     }
                 },
                 label: {
@@ -50,11 +52,30 @@ struct SignInScreen: View {
             
         }
         .padding(.horizontal)
+        .alert(item: $errorWrapper) { errorWrapper in
+            Alert(title: Text(errorWrapper.title), message: Text(errorWrapper.description))
+        }
+    }
+}
+
+private extension SignInScreen {
+    func signIn() async {
+        do {
+            try await authManager.signIn(email: email, password: password)
+        } catch {
+            errorWrapper = ErrorWrapper(
+                error: error,
+                title: "Sign in failure",
+                description: error.localizedDescription
+            )
+        }
     }
 }
 
 struct SignInScreen_Previews: PreviewProvider {
     static var previews: some View {
-        SignInScreen()
+        SignInScreen<AuthManagerStub>()
+            .environmentObject(AuthManagerStub())
     }
 }
+

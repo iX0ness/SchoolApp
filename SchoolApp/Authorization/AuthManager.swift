@@ -52,6 +52,7 @@ extension AuthManager {
             currentUser = result.user
         } catch {
             DebugTool.print(message: "Failed to sign in", error: error)
+            throw error
         }
     }
     
