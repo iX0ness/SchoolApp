@@ -9,4 +9,8 @@ import SwiftUI
 
 enum SCColor {
     static let main = Color.init(uiColor: UIColor(red: 68 / 255, green: 152 / 255, blue: 164 / 255, alpha: 1.0))
+    
+    enum UI {
+        static let tabBar = UIColor.lightGray.withAlphaComponent(0.05)
+    }
 }

@@ -8,20 +8,29 @@
 import SwiftUI
 
 struct ProfileScreen<T: AuthManagerProtocol>: View {
-    @EnvironmentObject var authManager: T
+    
     
     var body: some View {
-        Button("Sign out") {
-            do {
-                try authManager.singOut()
-            } catch {
-                
+        NavigationStack {
+            VStack {
+                ProfileDataView()
+                    .padding(.top, 16)
             }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    ProfileMenuView<AuthManager>()
+                }
+            }
+            .navigationTitle("Profile")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
 
 #Preview {
-    ProfileScreen<AuthManagerStub>()
-        .environmentObject(AuthManagerStub())
+    NavigationStack {
+        ProfileScreen<AuthManagerStub>()
+            .navigationTitle("Profile")
+    }
+    
 }

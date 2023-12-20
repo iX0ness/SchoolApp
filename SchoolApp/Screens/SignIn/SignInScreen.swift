@@ -14,44 +14,48 @@ struct SignInScreen<T: AuthManagerProtocol>: View {
     @State private var password = ""
     
     var body: some View {
-        VStack {
-            Spacer()
-            
-            TextField("Email", text: $email)
-                .modifier(SCTextField())
-                .textInputAutocapitalization(.never)
-            
-            SecureField("Password", text: $password)
-                .modifier(SCTextField())
-            
-            Button(
-                action: {
-                    Task { await signIn() }
-                },
-                label: {
-                    Text("Sign In")
-                        .frame(width: 250, height: 55)
-                        .background(Color(.systemBlue))
-                        .foregroundColor(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
+        NavigationStack {
+            VStack {
+                Spacer()
+                
+                TextField("Email", text: $email)
+                    .modifier(SCTextField())
+                    .textInputAutocapitalization(.never)
+                
+                SecureField("Password", text: $password)
+                    .modifier(SCTextField())
+                
+                Button(
+                    action: {
+                        Task { await signIn() }
+                    },
+                    label: {
+                        Text("Sign In")
+                            .frame(width: 250, height: 55)
+                            .background(Color(.systemBlue))
+                            .foregroundColor(.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    }
+                )
+                .padding(.top, 10)
+                
+                Spacer()
+                
+                HStack(spacing: 0) {
+                    Text("First time here? ")
+                    NavigationLink(
+                        destination: SignUpScreen(),
+                        label: { Text("Sign up  ") }
+                    )
+                    Text("and create account")
                 }
-            )
-            .padding(.top, 10)
-            
-            Spacer()
-            
-            HStack(spacing: 0) {
-                Text("First time here? ")
-                Text("Sign Up ")
-                    .fontWeight(.bold)
-                Text("and create account")
+                .font(.subheadline)
+                
             }
-            .font(.subheadline)
-            
-        }
-        .padding(.horizontal)
-        .alert(item: $errorWrapper) { errorWrapper in
-            Alert(title: Text(errorWrapper.title), message: Text(errorWrapper.description))
+            .padding(.horizontal)
+            .alert(item: $errorWrapper) { errorWrapper in
+                Alert(title: Text(errorWrapper.title), message: Text(errorWrapper.description))
+            }
         }
     }
 }
