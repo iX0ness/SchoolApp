@@ -36,7 +36,7 @@ struct SignUpScreen: View {
                 label: {
                     Text("Complete registration")
                         .frame(width: 250, height: 55)
-                        .background(Color(.systemBlue))
+                        .background(SCColor.main)
                         .foregroundColor(.white)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }

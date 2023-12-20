@@ -32,7 +32,7 @@ struct SignInScreen<T: AuthManagerProtocol>: View {
                     label: {
                         Text("Sign In")
                             .frame(width: 250, height: 55)
-                            .background(Color(.systemBlue))
+                            .background(SCColor.main)
                             .foregroundColor(.white)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
@@ -45,7 +45,10 @@ struct SignInScreen<T: AuthManagerProtocol>: View {
                     Text("First time here? ")
                     NavigationLink(
                         destination: SignUpScreen(),
-                        label: { Text("Sign up  ") }
+                        label: { 
+                            Text("Sign up  ")
+                                .tint(SCColor.main)
+                        }
                     )
                     Text("and create account")
                 }
