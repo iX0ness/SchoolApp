@@ -10,31 +10,41 @@ import SwiftUI
 struct ProfileDataView: View {
     
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: 50) {
             Image("profile_placeholder")
                 .resizable()
                 .frame(width: 75, height: 75)
             
             HStack {
-                VStack(spacing: 8) {
-                    VStack {
+                VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .leading) {
                         Text("First name")
-                            .font(.caption)
+                            .font(.subheadline)
                             .foregroundStyle(Color.gray)
                         
                         Text("John")
-                            .font(.headline)
+                            .font(.system(size: 40, weight: .bold))
                             .foregroundStyle(Color.black)
                     }
                     
                     
-                    VStack {
+                    VStack(alignment: .leading) {
                         Text("Last name")
-                            .font(.caption)
+                            .font(.subheadline)
                             .foregroundStyle(Color.gray)
                         
                         Text("Doe")
-                            .font(.headline)
+                            .font(.system(size: 40, weight: .bold))
+                            .foregroundStyle(Color.black)
+                    }
+                    
+                    VStack(alignment: .leading) {
+                        Text("Subject")
+                            .font(.subheadline)
+                            .foregroundStyle(Color.gray)
+                        
+                        Text("Math")
+                            .font(.system(size: 40, weight: .bold))
                             .foregroundStyle(Color.black)
                     }
                 }

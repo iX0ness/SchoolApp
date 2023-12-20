@@ -12,12 +12,14 @@ struct User: Identifiable, Hashable {
     let id: String
     let firstname: String
     let lastname: String
+    let subject: String
     let groups: [String]
     
     enum CodingKeys: String, CodingKey {
         case id
         case firstname
         case lastname
+        case subject
         case groups
     }
 }
@@ -29,6 +31,7 @@ extension User: Decodable {
         id = try container.decode(String.self, forKey: .id)
         firstname = try container.decode(String.self, forKey: .firstname)
         lastname = try container.decode(String.self, forKey: .lastname)
+        subject = try  container.decode(String.self, forKey: .subject)
         groups = try container.decode([String].self, forKey: .groups)
     }
 }
@@ -39,6 +42,7 @@ extension User {
             id: "231231231",
             firstname: "John",
             lastname: "Doe",
+            subject: "Math",
             groups: []
         )
     }
