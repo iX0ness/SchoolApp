@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class GroupServiceStub: GroupServiceProtocol {
-    func loadGroups(_ groupIds: [String]) async -> [Group] {
+final class GroupsServiceStub: GroupsServiceProtocol {
+    func loadGroups(for userId: String) async -> [Group] {
         return [.mock, .mock, .mock, .mock, .mock]
     }
 }

@@ -13,14 +13,16 @@ struct User: Identifiable, Hashable {
     let firstname: String
     let lastname: String
     let subject: String
-    let groups: [String]
+    var profileImageURL: String?
     
     enum CodingKeys: String, CodingKey {
         case id
         case firstname
         case lastname
         case subject
+        case profileImageURL
         case groups
+        
     }
 }
 
@@ -32,7 +34,8 @@ extension User: Decodable {
         firstname = try container.decode(String.self, forKey: .firstname)
         lastname = try container.decode(String.self, forKey: .lastname)
         subject = try  container.decode(String.self, forKey: .subject)
-        groups = try container.decode([String].self, forKey: .groups)
+        profileImageURL = try container.decodeIfPresent(String.self, forKey: .profileImageURL)
+//        groups = try container.decode([DocumentReference].self, forKey: .groups).map { $0.path }
     }
 }
 
@@ -42,8 +45,20 @@ extension User {
             id: "231231231",
             firstname: "John",
             lastname: "Doe",
-            subject: "Math",
-            groups: []
+            subject: "Math"
+        )
+    }
+}
+
+extension User {
+    func printData() {
+        print(
+            """
+            🟢 User model
+            ▶️ \(firstname)
+            ▶️ \(lastname)
+            ▶️ \(profileImageURL)
+            """
         )
     }
 }

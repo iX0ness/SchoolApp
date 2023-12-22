@@ -16,7 +16,7 @@ struct HomeScreen: View {
                 .tabItem {
                     Label("Groups", image: "groups_tab")
                 }
-            ProfileScreen<AuthManager>()
+            ProfileScreen(userId: userId)
                 .tabItem {
                     Label("Profile", image: "profile_tab")
                 }

@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct GroupsScreen: View {
-    @StateObject var groupsModel: GroupsModel = GroupsModel(
-        userService: Dependencies.usersService,
-        groupService: Dependencies.groupService
-    )
+    @StateObject var groupsModel = GroupsModel(groupsService: Dependencies.groupsService)
     
     private let userId: String
     private let columns = [
@@ -53,6 +50,6 @@ struct GroupsScreen_Previews: PreviewProvider {
 extension GroupsScreen {
     struct Dependencies {
         static let usersService: UserServiceProtocol = UserService()
-        static let groupService: GroupServiceProtocol = GroupService()
+        static let groupsService: GroupsServiceProtocol = GroupsService()
     }
 }

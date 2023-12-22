@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-struct ProfileScreen<T: AuthManagerProtocol>: View {
+struct ProfileScreen: View {
+    @StateObject var profileModel = ProfileModel(userService: Dependencies.userService)
     
+    let userId: String
     
     var body: some View {
         NavigationStack {
             VStack {
-                ProfileDataView()
-                    .padding(.top, 16)
+                ProfileDataView(user: profileModel.user)
+                    .environmentObject(profileModel)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -23,14 +25,24 @@ struct ProfileScreen<T: AuthManagerProtocol>: View {
             }
             .navigationTitle("Profile")
             .navigationBarTitleDisplayMode(.inline)
+            .task {
+                await profileModel.loadUser(id: userId)
+            }
         }
     }
 }
 
 #Preview {
     NavigationStack {
-        ProfileScreen<AuthManagerStub>()
+        ProfileScreen(userId: "mGQtQonDiRRlJtzHk5AdGiX3w6p1")
+            .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Profile")
     }
     
+}
+
+extension ProfileScreen {
+    struct Dependencies {
+        static let userService: UserServiceProtocol = UserService()
+    }
 }

@@ -10,27 +10,15 @@ import Foundation
 final class GroupsModel: ObservableObject {
     @Published var groups: [Group] = []
     
-    private let userService: UserServiceProtocol
-    private let groupService: GroupServiceProtocol
+    private let groupsService: GroupsServiceProtocol
     
-    init(userService: UserServiceProtocol, groupService: GroupServiceProtocol) {
-        self.userService = userService
-        self.groupService = groupService
+    init(groupsService: GroupsServiceProtocol) {
+        self.groupsService = groupsService
     }
     
     @MainActor
     func loadGroups(for userId: String) async {
-        var user: User?
-        
-        do {
-            user = try await userService.loadUser(by: userId)
-        } catch {
-            DebugTool.print(message: "Failed to fetch user from database", error: error)
-        }
-        
-        guard let user = user else { return }
-        
-        groups = await groupService.loadGroups(user.groups)
+        groups = await groupsService.loadGroups(for: userId)
     }
 }
 

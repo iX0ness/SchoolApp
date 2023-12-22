@@ -12,6 +12,7 @@ struct GroupCellView: View {
     
     var body: some View {
         Text(group.name)
+            .foregroundStyle(SCColor.secondary)
             .frame(width: 150, height: 60)
             .overlay(
                 RoundedRectangle(cornerRadius: 20)

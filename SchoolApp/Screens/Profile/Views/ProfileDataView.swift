@@ -8,61 +8,33 @@
 import SwiftUI
 
 struct ProfileDataView: View {
+    var user: User?
     
     var body: some View {
-        VStack(spacing: 50) {
-            Image("profile_placeholder")
-                .resizable()
-                .frame(width: 75, height: 75)
+        VStack(spacing: 25) {
+            Divider()
+                .overlay { SCColor.main }
             
-            HStack {
-                VStack(alignment: .leading, spacing: 8) {
-                    VStack(alignment: .leading) {
-                        Text("First name")
-                            .font(.subheadline)
-                            .foregroundStyle(Color.gray)
-                        
-                        Text("John")
-                            .font(.system(size: 40, weight: .bold))
-                            .foregroundStyle(Color.black)
-                    }
-                    
-                    
-                    VStack(alignment: .leading) {
-                        Text("Last name")
-                            .font(.subheadline)
-                            .foregroundStyle(Color.gray)
-                        
-                        Text("Doe")
-                            .font(.system(size: 40, weight: .bold))
-                            .foregroundStyle(Color.black)
-                    }
-                    
-                    VStack(alignment: .leading) {
-                        Text("Subject")
-                            .font(.subheadline)
-                            .foregroundStyle(Color.gray)
-                        
-                        Text("Math")
-                            .font(.system(size: 40, weight: .bold))
-                            .foregroundStyle(Color.black)
-                    }
-                }
-                .padding(.horizontal, 10)
-                Spacer()
-                    
-            }
+            ProfileHeaderView()
             
+            Divider()
+                .overlay { SCColor.main }
             
-            
-            
+            ProfileInfoSectionView(
+                firstname: user?.firstname ?? "",
+                lastname: user?.lastname ?? "",
+                subject: user?.subject ?? ""
+            )
+            .padding(.horizontal, 16)
             
             Spacer()
         }
-        .padding(.horizontal, 16)
     }
+    
 }
 
 #Preview {
-    ProfileDataView()
+    ProfileDataView(user: User.mock)
 }
+
+
