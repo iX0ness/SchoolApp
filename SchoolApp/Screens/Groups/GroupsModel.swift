@@ -21,4 +21,3 @@ final class GroupsModel: ObservableObject {
         groups = await groupsService.loadGroups(for: userId)
     }
 }
-

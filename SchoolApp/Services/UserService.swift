@@ -13,7 +13,7 @@ import FirebaseStorage
 protocol UserServiceProtocol: AnyObject {
     func loadUser(by id: String) async -> User?
     func updateProfileImage(fileName: String, data: Data) async -> String?
-    func updateUser(by id: String, with profileImageURL: String) async 
+    func updateUser(by id: String, with profileImageURL: String) async
 }
 
 final class UserService: UserServiceProtocol {
@@ -24,7 +24,7 @@ final class UserService: UserServiceProtocol {
             let user = try await snapshot.getDocument(as: User.self)
             return user
         } catch {
-            DebugTool.print(message: "Couldn't parse", error: error)
+            DebugTool.print(message: "Couldn't parse user", error: error)
         }
         
         return nil
@@ -33,7 +33,7 @@ final class UserService: UserServiceProtocol {
     func updateProfileImage(fileName userId: String, data: Data) async -> String? {
         do {
             let imageURL = try await uploadImage(fileName: userId, data: data)
-                
+            
             return imageURL
         } catch {
             DebugTool.print(message: "Failed to upload profile image", error: error)

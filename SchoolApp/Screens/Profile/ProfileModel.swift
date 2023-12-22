@@ -23,13 +23,11 @@ final class ProfileModel: ObservableObject {
     
     @MainActor
     func updateImage(data: Data?) async {
-        guard let data = data, let id = user?.id else { return }
-              
-        let imageURL = await userService.updateProfileImage(fileName: id, data: data)
+        guard let data = data,
+              let userId = user?.id,
+              let imageURL = await userService.updateProfileImage(fileName: userId, data: data) else { return }
         
-        guard let imageURL else { return }
-        
-        await userService.updateUser(by: id, with: imageURL)
+        await userService.updateUser(by: userId, with: imageURL)
         
         user?.profileImageURL = imageURL
     }

@@ -49,7 +49,6 @@ struct GroupsScreen_Previews: PreviewProvider {
 
 extension GroupsScreen {
     struct Dependencies {
-        static let usersService: UserServiceProtocol = UserService()
-        static let groupsService: GroupsServiceProtocol = GroupsService()
+        static var groupsService: GroupsServiceProtocol = GroupsService()
     }
 }

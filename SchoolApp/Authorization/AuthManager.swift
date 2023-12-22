@@ -24,17 +24,7 @@ final class AuthManager: AuthManagerProtocol {
     init() {
         loadUser()
     }
-
-    private func loadUser()  {
-        if let user = Auth.auth().currentUser {
-            currentUser = user
-        } else {
-            currentUser = nil
-        }
-    }
-}
-
-extension AuthManager {
+    
     @MainActor
     func createUser(email: String, password: String) async throws {
         do {
@@ -67,3 +57,12 @@ extension AuthManager {
     }
 }
 
+private extension AuthManager {
+    func loadUser()  {
+        if let user = Auth.auth().currentUser {
+            currentUser = user
+        } else {
+            currentUser = nil
+        }
+    }
+}

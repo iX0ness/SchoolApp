@@ -14,7 +14,7 @@ struct ProfileMenuView<T: AuthManagerProtocol>: View {
         Menu(
             content: {
                 Button(
-                    action: signOut,
+                    action: { signOut() },
                     label: { Text("Sign out") }
                 )
             },

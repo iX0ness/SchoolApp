@@ -13,7 +13,6 @@
 		22166AEF2ACF236800D55065 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22166AEE2ACF236800D55065 /* HomeScreen.swift */; };
 		22166AF12ACF239F00D55065 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22166AF02ACF239F00D55065 /* ProfileScreen.swift */; };
 		22166AF32ACF24F400D55065 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22166AF22ACF24F400D55065 /* Constants.swift */; };
-		22526B862ACCBE7A00E568AA /* DelayedAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22526B852ACCBE7A00E568AA /* DelayedAppearance.swift */; };
 		225AAA1B2B32FB39007631E6 /* ProfileDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225AAA1A2B32FB39007631E6 /* ProfileDataView.swift */; };
 		225AAA1F2B3316B8007631E6 /* ProfileMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225AAA1E2B3316B8007631E6 /* ProfileMenuView.swift */; };
 		225AAA262B336213007631E6 /* ProfileInfoSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225AAA252B336213007631E6 /* ProfileInfoSectionView.swift */; };
@@ -26,7 +25,6 @@
 		22B1DAAF2A86506B00789DEA /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1DAAE2A86506B00789DEA /* Group.swift */; };
 		22B1DAB62A8CCD5100789DEA /* GroupCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1DAB52A8CCD5100789DEA /* GroupCellView.swift */; };
 		22B1DABB2A8CD4FA00789DEA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1DABA2A8CD4FA00789DEA /* Colors.swift */; };
-		22BAFAE52B350C1D006A08FA /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAFAE42B350C1D006A08FA /* Collections.swift */; };
 		22BAFAEA2B35115F006A08FA /* CollectionConcurrencyKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22BAFAE92B35115F006A08FA /* CollectionConcurrencyKit */; };
 		22BAFAED2B351174006A08FA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 22BAFAEC2B351174006A08FA /* Kingfisher */; };
 		22BAFAF02B351183006A08FA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 22BAFAEF2B351183006A08FA /* Lottie */; };
@@ -137,7 +135,6 @@
 		22166AEE2ACF236800D55065 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		22166AF02ACF239F00D55065 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		22166AF22ACF24F400D55065 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		22526B852ACCBE7A00E568AA /* DelayedAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayedAppearance.swift; sourceTree = "<group>"; };
 		225AAA1A2B32FB39007631E6 /* ProfileDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataView.swift; sourceTree = "<group>"; };
 		225AAA1E2B3316B8007631E6 /* ProfileMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuView.swift; sourceTree = "<group>"; };
 		225AAA252B336213007631E6 /* ProfileInfoSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoSectionView.swift; sourceTree = "<group>"; };
@@ -151,7 +148,6 @@
 		22B1DAAE2A86506B00789DEA /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		22B1DAB52A8CCD5100789DEA /* GroupCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCellView.swift; sourceTree = "<group>"; };
 		22B1DABA2A8CD4FA00789DEA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		22BAFAE42B350C1D006A08FA /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
 		22BAFB852B3516E7006A08FA /* SchoolAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchoolAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22BAFB872B3516E7006A08FA /* SchoolAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolAppTests.swift; sourceTree = "<group>"; };
 		22EC11802A82375800A939A8 /* GroupsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsScreen.swift; sourceTree = "<group>"; };
@@ -427,7 +423,6 @@
 			children = (
 				22F6AA322A7D5EE70052FFC6 /* UserService.swift */,
 				22166AEB2ACF19A800D55065 /* GroupsService.swift */,
-				22BAFAE42B350C1D006A08FA /* Collections.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -522,7 +517,6 @@
 			isa = PBXGroup;
 			children = (
 				22F6AA3C2A7E674A0052FFC6 /* SCTextField.swift */,
-				22526B852ACCBE7A00E568AA /* DelayedAppearance.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -720,7 +714,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22526B862ACCBE7A00E568AA /* DelayedAppearance.swift in Sources */,
 				225AAA262B336213007631E6 /* ProfileInfoSectionView.swift in Sources */,
 				22B1DAAD2A83D27E00789DEA /* GroupsModel.swift in Sources */,
 				225AAA1F2B3316B8007631E6 /* ProfileMenuView.swift in Sources */,
@@ -741,7 +734,6 @@
 				22F6AA032A7D56890052FFC6 /* RootSсreen.swift in Sources */,
 				22B1DAAF2A86506B00789DEA /* Group.swift in Sources */,
 				229E91DA2ACFF8300040D81A /* ErrorView.swift in Sources */,
-				22BAFAE52B350C1D006A08FA /* Collections.swift in Sources */,
 				22EC11812A82375800A939A8 /* GroupsScreen.swift in Sources */,
 				22EC118B2A823A8500A939A8 /* DebugTool.swift in Sources */,
 				22F6AA012A7D56890052FFC6 /* MainApp.swift in Sources */,
