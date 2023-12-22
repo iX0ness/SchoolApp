@@ -18,31 +18,31 @@ struct ProfileInfoSectionView: View {
                 VStack(alignment: .leading) {
                     Text("First name")
                         .font(.subheadline)
-                        .foregroundStyle(SCColor.main)
+                        .foregroundStyle(SCColor.primary)
                     
                     Text(firstname)
                         .font(.system(size: 40, weight: .semibold))
-                        .foregroundStyle(SCColor.secondary)
+                        .foregroundStyle(SCColor.defaultText)
                 }
                 
                 VStack(alignment: .leading) {
                     Text("Last name")
                         .font(.subheadline)
-                        .foregroundStyle(SCColor.main)
+                        .foregroundStyle(SCColor.primary)
                     
                     Text(lastname)
                         .font(.system(size: 40, weight: .semibold))
-                        .foregroundStyle(SCColor.secondary)
+                        .foregroundStyle(SCColor.defaultText)
                 }
                 
                 VStack(alignment: .leading) {
                     Text("Subject")
                         .font(.subheadline)
-                        .foregroundStyle(SCColor.main)
+                        .foregroundStyle(SCColor.primary)
                     
                     Text(subject)
                         .font(.system(size: 40, weight: .semibold))
-                        .foregroundStyle(SCColor.secondary)
+                        .foregroundStyle(SCColor.defaultText)
                 }
             }
             

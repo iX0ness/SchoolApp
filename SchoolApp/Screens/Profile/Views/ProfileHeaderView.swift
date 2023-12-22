@@ -21,7 +21,7 @@ struct ProfileHeaderView: View {
                 Text("Edit profile picture")
                     .font(.footnote)
                     .fontWeight(.semibold)
-                    .tint(SCColor.secondary)
+                    .tint(SCColor.defaultText)
             }
             
         }

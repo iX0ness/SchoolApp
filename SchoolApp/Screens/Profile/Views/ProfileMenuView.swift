@@ -15,7 +15,10 @@ struct ProfileMenuView<T: AuthManagerProtocol>: View {
             content: {
                 Button(
                     action: { signOut() },
-                    label: { Text("Sign out") }
+                    label: {
+                        Text("Sign out")
+                            .foregroundStyle(SCColor.defaultText)
+                    }
                 )
             },
             label: {

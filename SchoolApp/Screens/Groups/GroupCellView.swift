@@ -12,11 +12,11 @@ struct GroupCellView: View {
     
     var body: some View {
         Text(group.name)
-            .foregroundStyle(SCColor.secondary)
+            .foregroundStyle(SCColor.defaultText)
             .frame(width: 150, height: 60)
             .overlay(
                 RoundedRectangle(cornerRadius: 20)
-                    .stroke(SCColor.main, lineWidth: 1)
+                    .stroke(SCColor.primary, lineWidth: 1)
             )
     }
 }

@@ -14,6 +14,6 @@ struct SCTextField: ViewModifier {
         .padding(22)
         .background(Color(.systemGray6))
         .cornerRadius(10)
-        .tint(SCColor.main)
+        .tint(SCColor.primary)
     }
 }

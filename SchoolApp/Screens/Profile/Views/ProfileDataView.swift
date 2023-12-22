@@ -13,12 +13,12 @@ struct ProfileDataView: View {
     var body: some View {
         VStack(spacing: 25) {
             Divider()
-                .overlay { SCColor.main }
+                .overlay { SCColor.primary }
             
             ProfileHeaderView()
             
             Divider()
-                .overlay { SCColor.main }
+                .overlay { SCColor.primary }
             
             ProfileInfoSectionView(
                 firstname: user?.firstname ?? "",

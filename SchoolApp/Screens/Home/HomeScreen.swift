@@ -25,7 +25,7 @@ struct HomeScreen: View {
             UITabBar.appearance().backgroundColor = SCColor.UI.tabBar
             
         }
-        .tint(SCColor.main)
+        .tint(SCColor.primary)
     }
 }
 
