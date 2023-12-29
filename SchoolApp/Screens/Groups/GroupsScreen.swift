@@ -8,25 +8,27 @@
 import SwiftUI
 
 struct GroupsScreen: View {
-    @StateObject var groupsModel = GroupsModel(groupsService: Dependencies.groupsService)
+    @EnvironmentObject var userModel: UserModel
+    @StateObject private var groupsModel = GroupsModel(groupsService: Dependencies.groupsService)
     
-    private let userId: String
     private let columns = [
         GridItem(.fixed(150), spacing: 30),
         GridItem(.fixed(150), spacing: 30)
     ]
-    
-    init(userId: String) {
-        self.userId = userId
-    }
     
     var body: some View {
         NavigationStack {
             ScrollView(.vertical) {
                 LazyVGrid(columns: columns) {
                     ForEach(groupsModel.groups) { group in
-                        GroupCellView(group: group)
-                            .frame(width: 150, height: 30)
+                        NavigationLink {
+                            StudentsScreen(group: group)
+                        } label: {
+                            TitleCell(title: group.name)
+                                .frame(width: 150, height: 60)
+                                .primaryCellStyle()
+                        }
+                        
                     }
                     .padding()
                 }
@@ -34,7 +36,9 @@ struct GroupsScreen: View {
             }
             .navigationTitle("Groups")
             .task {
-                await groupsModel.loadGroups(for: userId)
+                if let user = userModel.user {
+                    await groupsModel.loadGroups(for: user.id)
+                }
             }
         }
     }
@@ -42,7 +46,7 @@ struct GroupsScreen: View {
 
 struct GroupsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        GroupsScreen(userId: "mGQtQonDiRRlJtzHk5AdGiX3w6p1")
+        GroupsScreen()
             .environmentObject(AuthManager.shared)
     }
 }

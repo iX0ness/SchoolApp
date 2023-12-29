@@ -1,13 +1,13 @@
 //
-//  ProfileModel.swift
+//  UserModel.swift
 //  SchoolApp
 //
-//  Created by Mykhaylo Levchuk on 21/12/2023.
+//  Created by Mykhaylo Levchuk on 28/12/2023.
 //
 
-import SwiftUI
+import Foundation
 
-final class ProfileModel: ObservableObject {
+final class UserModel: ObservableObject {
     private let userService: UserServiceProtocol
     private let subjectsService: SubjectsServiceProtocol
     
@@ -25,8 +25,10 @@ final class ProfileModel: ObservableObject {
     }
     
     @MainActor
-    func loadSubject(for userId: String) async {
-        subject = await subjectsService.loadSubject(for: userId)
+    func loadSubject() async {
+        if let id = user?.id {
+            subject = await subjectsService.loadSubject(for: id)
+        }
     }
     
     @MainActor

@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseAuth
 
-protocol AuthManagerProtocol: ObservableObject {
+protocol AuthManagerProtocol: ObservableObject, AnyObject {
     var currentUser: FirebaseAuth.User? { get }
     
     func createUser(email: String, password: String) async throws

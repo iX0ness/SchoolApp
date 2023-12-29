@@ -1,13 +1,13 @@
 //
-//  Group.swift
+//  Subject.swift
 //  SchoolApp
 //
-//  Created by Mykhaylo Levchuk on 11/08/2023.
+//  Created by Mykhaylo Levchuk on 22/12/2023.
 //
 
 import Foundation
 
-struct Group: Identifiable, Hashable {
+struct Subject: Identifiable, Hashable {
     let id: String
     let name: String
     
@@ -16,17 +16,13 @@ struct Group: Identifiable, Hashable {
     }
 }
 
-extension Group: Decodable {
+
+
+extension Subject: Decodable {
     init(from decoder: Decoder) throws {
         let conatiner = try decoder.container(keyedBy: CodingKeys.self)
         
-        id = try Group.decodeDocumentID(from: decoder)
+        id = try Subject.decodeDocumentID(from: decoder)
         name = try conatiner.decode(String.self, forKey: .name)
-    }
-}
-
-extension Group {
-    static var mock: Group {
-        return Group(id: UUID().uuidString, name: "Angry Nerds")
     }
 }

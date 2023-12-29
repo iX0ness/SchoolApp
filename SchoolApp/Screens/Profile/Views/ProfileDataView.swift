@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileDataView: View {
     var user: User?
+    var subject: Subject?
     
     var body: some View {
         VStack(spacing: 25) {
@@ -23,7 +24,7 @@ struct ProfileDataView: View {
             ProfileInfoSectionView(
                 firstname: user?.firstname ?? "",
                 lastname: user?.lastname ?? "",
-                subject: user?.subject ?? ""
+                subject: subject?.name ?? ""
             )
             .padding(.horizontal, 16)
             

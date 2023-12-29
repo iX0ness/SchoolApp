@@ -8,33 +8,30 @@
 import SwiftUI
 
 struct ProfileScreen: View {
-    @StateObject var profileModel = ProfileModel(userService: Dependencies.userService)
-    
-    let userId: String
+    @EnvironmentObject var userModel: UserModel
     
     var body: some View {
         NavigationStack {
             VStack {
-                ProfileDataView(user: profileModel.user)
-                    .environmentObject(profileModel)
+                ProfileDataView(user: userModel.user, subject: userModel.subject)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     ProfileMenuView<AuthManager>()
                 }
             }
+            .task {
+                await userModel.loadSubject()
+            }
             .navigationTitle("Profile")
             .navigationBarTitleDisplayMode(.inline)
-            .task {
-                await profileModel.loadUser(id: userId)
-            }
         }
     }
 }
 
 #Preview {
     NavigationStack {
-        ProfileScreen(userId: "mGQtQonDiRRlJtzHk5AdGiX3w6p1")
+        ProfileScreen()
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Profile")
     }
@@ -43,6 +40,7 @@ struct ProfileScreen: View {
 
 extension ProfileScreen {
     struct Dependencies {
-        static let userService: UserServiceProtocol = UserService()
+        static var userService: UserServiceProtocol = UserService()
+        static var subjectsService: SubjectsServiceProtocol = SubjectsService()
     }
 }

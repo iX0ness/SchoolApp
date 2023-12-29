@@ -16,14 +16,13 @@ final class GroupsService: GroupsServiceProtocol {
     func loadGroups(for userId: String) async -> [Group] {
         var groups: [Group] = []
         
-        let query = Firestore.firestore().collection("users").whereField("id", isEqualTo: userId)
+        let userReference = Firestore.firestore().collection("users").document(userId)
+        let query = Firestore.firestore().collection("groups").whereField("teacher", isEqualTo: userReference)
         
         do {
-            let snapshot = try await query.getDocuments().documents.first
-            
-            guard let data = snapshot?.data(), let references = data["groups"] as? [DocumentReference] else { return [] }
-            
-            groups = await references.asyncCompactMap { try? await loadGroup($0) }
+            let snapshots = try await query.getDocuments().documents
+            groups = snapshots.compactMap { try? $0.data(as: Group.self) }
+
         } catch {
             DebugTool.print(message: "Failed to fetch groups", error: error)
         }
