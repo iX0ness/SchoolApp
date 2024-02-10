@@ -32,7 +32,10 @@ struct HomeScreen: View {
                     }
             }
         }
-        .task { await userModel.loadUser(id: userId) }
+        .task { 
+            await userModel.loadUser(id: userId)
+            await userModel.loadSubject()
+        }
         .environmentObject(userModel)
         .onAppear(perform: setTabBarColor)
         .tint(SCColor.primary)

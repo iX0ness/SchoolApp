@@ -11,6 +11,7 @@ import FirebaseFirestoreSwift
 protocol StudentsServiceProtocol: AnyObject {
     func loadStudents(for groupId: String) async -> [Student]
     func loadGrades(for studentId: String, and subjectId: String) async -> Grades?
+    func addGrade(_ value: Int, for studentId: String, to subjectId: String) async -> Int?
 }
 
 final class StudentsSerivce: StudentsServiceProtocol {
@@ -50,5 +51,24 @@ final class StudentsSerivce: StudentsServiceProtocol {
         }
         
         return grades
+    }
+    
+    func addGrade(_ value: Int, for studentId: String, to subjectId: String) async -> Int? {
+        let gradesReference = Firestore.firestore().collection("students").document(studentId).collection("grades")
+        let subjectReference = Firestore.firestore().collection("subjects").document(subjectId)
+        let newGrade = value
+        do {
+            let gradesSnapshot = try await gradesReference.getDocuments()
+                .documents
+                .filter { ($0.data()["subject"] as? DocumentReference)?.documentID == subjectReference.documentID }
+                .first
+            
+            try await gradesSnapshot?.reference.updateData(["grades": FieldValue.arrayUnion([value])])
+            return newGrade
+            
+        } catch {
+            DebugTool.print(message: "$ Failed to fetch grades for subject \(subjectId) of student \(studentId)", error: error)
+            return nil
+        }
     }
 }

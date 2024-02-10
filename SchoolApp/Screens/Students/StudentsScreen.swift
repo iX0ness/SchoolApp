@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StudentsScreen: View {
-    @ObservedObject private var studentsModel = StudentsModel(studentsService: Dependencies.studentsService)
+    @StateObject private var studentsModel = StudentsModel(studentsService: Dependencies.studentsService)
     let group: Group
     
     var body: some View {

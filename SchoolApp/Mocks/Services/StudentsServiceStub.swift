@@ -8,6 +8,10 @@
 import Foundation
 
 class StudentsServiceStub: StudentsServiceProtocol {
+    func addGrade(_ value: Int, for studentId: String, to subjectId: String) async -> Int? {
+        nil
+    }
+    
     func loadStudents(for groupId: String) async -> [Student] {
         [Student(id: "1", name: "Harry Potter")]
     }
