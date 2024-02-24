@@ -16,8 +16,10 @@ final class GroupsService: GroupsServiceProtocol {
     func loadGroups(for userId: String) async -> [Group] {
         var groups: [Group] = []
         
-        let userReference = Firestore.firestore().collection("users").document(userId)
-        let query = Firestore.firestore().collection("groups").whereField("teacher", isEqualTo: userReference)
+        let userReference = FirestoreReference.user(id: userId)
+        let groupsReference = FirestoreReference.groups()
+        
+        let query = groupsReference.whereField("teacher", isEqualTo: userReference)
         
         do {
             let snapshots = try await query.getDocuments().documents

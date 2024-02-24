@@ -21,13 +21,17 @@ struct Grades: Identifiable, Hashable {
     }
 }
 
-
-
 extension Grades: Decodable {
     init(from decoder: Decoder) throws {
         let conatiner = try decoder.container(keyedBy: CodingKeys.self)
         
         id = try Grades.decodeDocumentID(from: decoder)
         grades = try conatiner.decode([Int].self, forKey: .grades).map { Grade(value: $0) }
+    }
+}
+
+extension Grade: Equatable {
+    static func == (lhs: Grade, rhs: Grade) -> Bool {
+        return lhs.id == rhs.id
     }
 }

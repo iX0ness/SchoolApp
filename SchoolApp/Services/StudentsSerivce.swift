@@ -17,10 +17,10 @@ protocol StudentsServiceProtocol: AnyObject {
 final class StudentsSerivce: StudentsServiceProtocol {
     func loadStudents(for groupId: String) async -> [Student] {
         var students: [Student] = []
-        let reference = Firestore.firestore().collection("groups").document(groupId)
+        let groupReference = FirestoreReference.group(id: groupId)
         
         do {
-            let snapshot = try await reference.getDocument()
+            let snapshot = try await groupReference.getDocument()
             
             guard let data = snapshot.data(), let references = data["students"] as? [DocumentReference] else { return [] }
             
@@ -34,8 +34,10 @@ final class StudentsSerivce: StudentsServiceProtocol {
     }
     
     func loadGrades(for studentId: String, and subjectId: String) async -> Grades? {
-        let gradesReference = Firestore.firestore().collection("students").document(studentId).collection("grades")
-        let subjectReference = Firestore.firestore().collection("subjects").document(subjectId)
+        let studentReference = FirestoreReference.student(id: studentId)
+        let gradesReference = studentReference.collection(FirestoreCollection.grades.rawValue)
+        let subjectReference = FirestoreReference.subject(id: subjectId)
+        
         var grades: Grades?
         
         do {
@@ -54,8 +56,10 @@ final class StudentsSerivce: StudentsServiceProtocol {
     }
     
     func addGrade(_ value: Int, for studentId: String, to subjectId: String) async -> Int? {
-        let gradesReference = Firestore.firestore().collection("students").document(studentId).collection("grades")
-        let subjectReference = Firestore.firestore().collection("subjects").document(subjectId)
+        let studentReference = FirestoreReference.student(id: studentId)
+        let gradesReference = studentReference.collection(FirestoreCollection.grades.rawValue)
+        let subjectReference = FirestoreReference.subject(id: subjectId)
+        
         let newGrade = value
         do {
             let gradesSnapshot = try await gradesReference.getDocuments()
@@ -67,7 +71,7 @@ final class StudentsSerivce: StudentsServiceProtocol {
             return newGrade
             
         } catch {
-            DebugTool.print(message: "$ Failed to fetch grades for subject \(subjectId) of student \(studentId)", error: error)
+            DebugTool.print(message: "Failed to fetch grades for subject \(subjectId) of student \(studentId)", error: error)
             return nil
         }
     }

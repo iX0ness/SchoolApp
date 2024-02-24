@@ -18,7 +18,7 @@ protocol UserServiceProtocol: AnyObject {
 
 final class UserService: UserServiceProtocol {
     func loadUser(by id: String) async -> User? {
-        let snapshot = Firestore.firestore().collection("users").document(id)
+        let snapshot = FirestoreReference.user(id: id)
         
         do {
             let user = try await snapshot.getDocument(as: User.self)
@@ -46,7 +46,8 @@ final class UserService: UserServiceProtocol {
         
         data["profileImageURL"] = profileImageURL
         do {
-            try await Firestore.firestore().collection("users").document(id).updateData(data)
+            let userReference = FirestoreReference.user(id: id)
+            try await userReference.updateData(data)
         } catch {
             DebugTool.print(message: "Failed to update user profile URL", error: error)
         }

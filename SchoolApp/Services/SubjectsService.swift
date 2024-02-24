@@ -15,7 +15,7 @@ protocol SubjectsServiceProtocol {
 final class SubjectsService: SubjectsServiceProtocol {
     func loadSubject(for userId: String) async -> Subject? {
         var subject: Subject?
-        let reference = Firestore.firestore().collection("users").document(userId)
+        let reference = FirestoreReference.user(id: userId)
      
         do {
             let snapshot = try await reference.getDocument()

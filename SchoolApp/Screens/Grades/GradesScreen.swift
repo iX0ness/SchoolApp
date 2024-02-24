@@ -36,16 +36,12 @@ struct GradesScreen: View {
             
             Button(
                 action: { showAddGradeConfirmation.toggle() },
-                label: {
-                    Text("Add")
-                }
+                label: { Text("Add") }
             )
             
             Button(
                 action: { dismissAlert() },
-                label: {
-                    Text("Cancel")
-                }
+                label: { Text("Cancel") }
             )
         }
         .confirmationDialog(

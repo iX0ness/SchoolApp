@@ -13,6 +13,7 @@
 		22166AEF2ACF236800D55065 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22166AEE2ACF236800D55065 /* HomeScreen.swift */; };
 		22166AF12ACF239F00D55065 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22166AF02ACF239F00D55065 /* ProfileScreen.swift */; };
 		22166AF32ACF24F400D55065 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22166AF22ACF24F400D55065 /* Constants.swift */; };
+		224EAB882B77CE710076A4CC /* FirestoreReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EAB872B77CE710076A4CC /* FirestoreReference.swift */; };
 		22566AE42B358D8100B9BA08 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22566AE32B358D8100B9BA08 /* Subject.swift */; };
 		22566AE62B358FD700B9BA08 /* SubjectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22566AE52B358FD700B9BA08 /* SubjectsService.swift */; };
 		22566AE92B35D74100B9BA08 /* StudentsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22566AE82B35D74100B9BA08 /* StudentsScreen.swift */; };
@@ -151,6 +152,7 @@
 		22166AEE2ACF236800D55065 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		22166AF02ACF239F00D55065 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		22166AF22ACF24F400D55065 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		224EAB872B77CE710076A4CC /* FirestoreReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreReference.swift; sourceTree = "<group>"; };
 		22566AE32B358D8100B9BA08 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		22566AE52B358FD700B9BA08 /* SubjectsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsService.swift; sourceTree = "<group>"; };
 		22566AE82B35D74100B9BA08 /* StudentsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsScreen.swift; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 				22166AEB2ACF19A800D55065 /* GroupsService.swift */,
 				22566AE52B358FD700B9BA08 /* SubjectsService.swift */,
 				22566AF12B3AF96D00B9BA08 /* StudentsSerivce.swift */,
+				224EAB872B77CE710076A4CC /* FirestoreReference.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -820,6 +823,7 @@
 				22566AF32B3AFDF400B9BA08 /* Collections.swift in Sources */,
 				22166AEC2ACF19A800D55065 /* GroupsService.swift in Sources */,
 				22F6AA032A7D56890052FFC6 /* RootSсreen.swift in Sources */,
+				224EAB882B77CE710076A4CC /* FirestoreReference.swift in Sources */,
 				22566AE92B35D74100B9BA08 /* StudentsScreen.swift in Sources */,
 				22B1DAAF2A86506B00789DEA /* Group.swift in Sources */,
 				229E91DA2ACFF8300040D81A /* ErrorView.swift in Sources */,
